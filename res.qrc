@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/car.jpg</file>
+        <file>res/orange_car.jpg</file>
+        <file>res/redcar.jpg</file>
+        <file>res/road.jpg</file>
+        <file>res/road.png</file>
+        <file>res/road1.png</file>
+        <file>res/taxi.jpg</file>
+        <file>res/taxi_0.png</file>
+        <file>res/taxi_10.png</file>
+        <file>res/taxi_20.png</file>
+        <file>res/taxi_30.png</file>
+        <file>res/taxi_40.png</file>
+        <file>res/taxi_50.png</file>
+        <file>res/taxi_60.png</file>
+        <file>res/taxi_70.png</file>
+        <file>res/taxi_80.png</file>
+        <file>res/taxi_90.png</file>
+        <file>res/taxi-10.png</file>
+        <file>res/taxi-20.png</file>
+        <file>res/taxi-30.png</file>
+        <file>res/taxi-40.png</file>
+        <file>res/taxi-50.png</file>
+        <file>res/taxi-60.png</file>
+        <file>res/taxi-70.png</file>
+        <file>res/taxi-80.png</file>
+        <file>res/taxi-90.png</file>
+    </qresource>
+</RCC>
