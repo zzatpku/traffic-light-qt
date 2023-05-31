@@ -41,6 +41,16 @@
 #define W_CAR_TURN_80 ":/res/white_80.png"
 #define W_CAR_TURN_90 ":/res/white_90.png"
 
+#define W_CAR_TURN_010 ":/res/white-10.png"
+#define W_CAR_TURN_020 ":/res/white-20.png"
+#define W_CAR_TURN_030 ":/res/white-30.png"
+#define W_CAR_TURN_040 ":/res/white-40.png"
+#define W_CAR_TURN_050 ":/res/white-50.png"
+#define W_CAR_TURN_060 ":/res/white-60.png"
+#define W_CAR_TURN_070 ":/res/white-70.png"
+#define W_CAR_TURN_080 ":/res/white-80.png"
+#define W_CAR_TURN_090 ":/res/white-90.png"
+
 #define RED_LIGHT ":/res/red_light.png"
 #define YELLOW_LIGHT ":/res/yellow_light.png"
 #define GREEN_LIGHT ":/res/green_light.png"
