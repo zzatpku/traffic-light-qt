@@ -6,7 +6,7 @@ class Light
 {
 public:
     Light();
-    Light(char s[]);
+    Light(QString s);
     void setPosition(int x, int y);
 
 public:

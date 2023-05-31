@@ -48,5 +48,7 @@
         <file>res/white-70.png</file>
         <file>res/white-80.png</file>
         <file>res/white-90.png</file>
+        <file>res/traffic_light_test.png</file>
+        <file>res/traffic_light.png</file>
     </qresource>
 </RCC>

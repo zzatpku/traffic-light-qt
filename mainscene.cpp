@@ -106,11 +106,17 @@ MainScene::MainScene(QWidget *parent)
     right_to_left_green.setPosition(600, 125);
     right_to_left_yellow = Light(YELLOW_LIGHT);
     right_to_left_yellow.setPosition(600, 125);
+
+    light_struct.load(TRAFFIC_LIGHT_1);
+
     turn_right_flag = 0;
     turn_left_flag = 0;
     turning_right = false;
     turning_left = false;
     heading = false;
+
+    test = Car(CAR_PATH);
+    setMouseTracking(true);
 }
 
 MainScene::~MainScene()
@@ -492,6 +498,30 @@ void MainScene::updatePosition()
     if(f) destruct_turned_left_cars();
 }
 
+void MainScene::mouseMoveEvent(QMouseEvent *event)
+{
+    int x = event->x();//鼠标位置 - 飞机矩形的一半
+    int y = event->y();
+
+    //边界检测
+    if(x <= 0 )
+    {
+        x = 0;
+    }
+    if(x >= GAME_WIDTH)
+    {
+        x = GAME_WIDTH;
+    }
+    if(y <= 0)
+    {
+        y = 0;
+    }
+    if(y >= GAME_HEIGHT)
+    {
+        y = GAME_HEIGHT;
+    }
+    test.setPosition(x,y);
+}
 void MainScene::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
@@ -582,4 +612,8 @@ void MainScene::paintEvent(QPaintEvent *event)
             painter.drawPixmap(right_to_left_yellow.m_X, right_to_left_yellow.m_Y, right_to_left_yellow.m_Light);
         }
     }
+    painter.drawPixmap(768, -5, light_struct);
+    painter.drawPixmap(586, 116, light_struct);
+    painter.drawPixmap(1048, 116, light_struct);
+    //painter.drawPixmap(test.m_X, test.m_Y, test.m_Car);
 }

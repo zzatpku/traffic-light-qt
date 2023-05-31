@@ -5,7 +5,7 @@ Light::Light()
 {
 }
 
-Light::Light(char str[])
+Light::Light(QString str)
 {
     //初始化加载汽车图片资源
     m_Light.load(str);

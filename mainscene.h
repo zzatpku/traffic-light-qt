@@ -43,6 +43,7 @@ public:
     void destruct_turn_left_cars();
     void destruct_turned_left_cars();
     void destruct_right_to_left_cars();
+    void mouseMoveEvent(QMouseEvent *event);
 
     //地图对象
     Map m_map;
@@ -60,6 +61,8 @@ public:
     Car w_car_turning_right[9];
     Car w_car_turning_left[9];
 
+    Car test;
+
     Light turn_left_red;
     Light turn_left_green;
     Light turn_left_yellow;
@@ -69,6 +72,8 @@ public:
     Light right_to_left_red;
     Light right_to_left_green;
     Light right_to_left_yellow;
+
+    QPixmap light_struct;
 };
 
 #endif // MAINSCENE_H

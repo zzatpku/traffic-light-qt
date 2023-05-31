@@ -3,13 +3,16 @@
 #include <QtWidgets>
 #include <iostream>
 #include <string.h>
+using namespace std;
+#include <string.h>
+#include <QString>
 
 class Car
 {
 public:
     Car();
     Car(int num);
-    Car(char s[]);
+    Car(const QString s);
     void setPosition(int x, int y);
     void setSpeed(int s_x, int s_y);
 

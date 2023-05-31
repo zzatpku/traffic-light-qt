@@ -54,6 +54,8 @@
 #define RED_LIGHT ":/res/red_light.png"
 #define YELLOW_LIGHT ":/res/yellow_light.png"
 #define GREEN_LIGHT ":/res/green_light.png"
+#define TRAFFIC_LIGHT_1 ":/res/traffic_light.png"
+
 #define CAR_HEIGHT 109
 #define CAR_WIDTH 50
 #define left_to_right_waitline 600

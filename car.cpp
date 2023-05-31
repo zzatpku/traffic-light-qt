@@ -16,7 +16,7 @@ Car::Car()
     m_Rect.moveTo(m_X,m_Y);
 
 }
-Car::Car(char str[])
+Car::Car(const QString str)
 {
     //初始化加载汽车图片资源
     m_Car.load(str);
