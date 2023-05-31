@@ -16,6 +16,7 @@ public:
 public:
     QPixmap m_Car;
     int number;
+    int car_type;//0代表taxi， 1代表white
 
     int m_X;
     int m_Y;

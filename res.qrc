@@ -26,5 +26,27 @@
         <file>res/taxi-70.png</file>
         <file>res/taxi-80.png</file>
         <file>res/taxi-90.png</file>
+        <file>res/red_light.png</file>
+        <file>res/green_light.png</file>
+        <file>res/yellow_light.png</file>
+        <file>res/white_0.png</file>
+        <file>res/white_10.png</file>
+        <file>res/white_20.png</file>
+        <file>res/white_30.png</file>
+        <file>res/white_40.png</file>
+        <file>res/white_50.png</file>
+        <file>res/white_60.png</file>
+        <file>res/white_70.png</file>
+        <file>res/white_80.png</file>
+        <file>res/white_90.png</file>
+        <file>res/white-10.png</file>
+        <file>res/white-20.png</file>
+        <file>res/white-30.png</file>
+        <file>res/white-40.png</file>
+        <file>res/white-50.png</file>
+        <file>res/white-60.png</file>
+        <file>res/white-70.png</file>
+        <file>res/white-80.png</file>
+        <file>res/white-90.png</file>
     </qresource>
 </RCC>

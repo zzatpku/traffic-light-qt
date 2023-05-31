@@ -28,13 +28,15 @@ SOURCES += \
         main.cpp \
         mainscene.cpp \
     car.cpp \
-    map.cpp
+    map.cpp \
+    light.cpp
 
 HEADERS += \
         mainscene.h \
     config.h \
     car.h \
-    map.h
+    map.h \
+    light.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

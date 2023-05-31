@@ -8,6 +8,7 @@
 #define GAME_ICON ":/res/taxi.jpg"
 #define MAP_PATH  ":/res/road1.png"
 #define GAME_RATE  10   //刷新间隔，帧率 单位毫秒
+
 #define CAR_PATH ":/res/taxi_0.png"
 #define CAR_TURN_10 ":/res/taxi_10.png"
 #define CAR_TURN_20 ":/res/taxi_20.png"
@@ -18,6 +19,7 @@
 #define CAR_TURN_70 ":/res/taxi_70.png"
 #define CAR_TURN_80 ":/res/taxi_80.png"
 #define CAR_TURN_90 ":/res/taxi_90.png"
+
 #define CAR_TURN_010 ":/res/taxi-10.png"
 #define CAR_TURN_020 ":/res/taxi-20.png"
 #define CAR_TURN_030 ":/res/taxi-30.png"
@@ -27,6 +29,21 @@
 #define CAR_TURN_070 ":/res/taxi-70.png"
 #define CAR_TURN_080 ":/res/taxi-80.png"
 #define CAR_TURN_090 ":/res/taxi-90.png"
+
+#define W_CAR_PATH ":/res/white_0.png"
+#define W_CAR_TURN_10 ":/res/white_10.png"
+#define W_CAR_TURN_20 ":/res/white_20.png"
+#define W_CAR_TURN_30 ":/res/white_30.png"
+#define W_CAR_TURN_40 ":/res/white_40.png"
+#define W_CAR_TURN_50 ":/res/white_50.png"
+#define W_CAR_TURN_60 ":/res/white_60.png"
+#define W_CAR_TURN_70 ":/res/white_70.png"
+#define W_CAR_TURN_80 ":/res/white_80.png"
+#define W_CAR_TURN_90 ":/res/white_90.png"
+
+#define RED_LIGHT ":/res/red_light.png"
+#define YELLOW_LIGHT ":/res/yellow_light.png"
+#define GREEN_LIGHT ":/res/green_light.png"
 #define CAR_HEIGHT 109
 #define CAR_WIDTH 50
 #define left_to_right_waitline 600

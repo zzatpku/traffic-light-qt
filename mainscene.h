@@ -5,7 +5,8 @@
 #include "map.h"
 #include "car.h"
 #include "config.h"
-#include <vector>
+#include "light.h"
+
 class MainScene : public QWidget
 {
     Q_OBJECT
@@ -15,8 +16,11 @@ public:
     int light;//light=0表示可以直行，light=1表示可以左转, light=2表示黄灯
     int turn_right_flag;//是一个0到9的数
     int turn_left_flag;
+    int judge_yellow_light;
     bool turning_right;
     bool turning_left;
+    int turning_right_type;
+    int turning_left_type;
     bool heading;
     MainScene(QWidget *parent = nullptr);
     ~MainScene();
@@ -49,8 +53,22 @@ public:
     QVector<Car> cars_turn_left;//左转车辆
     QVector<Car> cars_turned_left;//左转完毕车辆
     QVector<Car> cars_right_to_left;//从右到左直行的车
+
     Car car_turning_right[9];
     Car car_turning_left[9];
+
+    Car w_car_turning_right[9];
+    Car w_car_turning_left[9];
+
+    Light turn_left_red;
+    Light turn_left_green;
+    Light turn_left_yellow;
+    Light left_to_right_red;
+    Light left_to_right_green;
+    Light left_to_right_yellow;
+    Light right_to_left_red;
+    Light right_to_left_green;
+    Light right_to_left_yellow;
 };
 
 #endif // MAINSCENE_H
