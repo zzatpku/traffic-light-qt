@@ -98,7 +98,6 @@
 #define GREEN_LIGHT ":/res/green_light.png"
 #define TRAFFIC_LIGHT_1 ":/res/traffic_light.png"
 
-#define zz 222222
 #define CAR_HEIGHT 109
 #define CAR_WIDTH 50
 #define left_to_right_waitline 600
