@@ -12,6 +12,7 @@ class MainScene : public QWidget
     Q_OBJECT
 
 public:
+    int update_speed;
     int car_stream_1;
     int light;//light=0表示可以直行，light=1表示可以左转, light=2表示黄灯
     int turn_right_flag;//是一个0到9的数
@@ -60,6 +61,12 @@ public:
 
     Car w_car_turning_right[9];
     Car w_car_turning_left[9];
+
+    Car r_car_turning_right[9];
+    Car r_car_turning_left[9];
+
+    Car b_car_turning_right[9];
+    Car b_car_turning_left[9];
 
     Car test;
 

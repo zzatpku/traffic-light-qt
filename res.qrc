@@ -50,5 +50,43 @@
         <file>res/white-90.png</file>
         <file>res/traffic_light_test.png</file>
         <file>res/traffic_light.png</file>
+        <file>res/cred_0.png</file>
+        <file>res/cred_10.png</file>
+        <file>res/cred_20.png</file>
+        <file>res/cred_30.png</file>
+        <file>res/cred_40.png</file>
+        <file>res/cred_50.png</file>
+        <file>res/cred_60.png</file>
+        <file>res/cred_70.png</file>
+        <file>res/cred_80.png</file>
+        <file>res/cred_90.png</file>
+        <file>res/cred-10.png</file>
+        <file>res/cred-20.png</file>
+        <file>res/cred-30.png</file>
+        <file>res/cred-40.png</file>
+        <file>res/cred-50.png</file>
+        <file>res/cred-60.png</file>
+        <file>res/cred-70.png</file>
+        <file>res/cred-80.png</file>
+        <file>res/cred-90.png</file>
+        <file>res/bcar_0.png</file>
+        <file>res/bcar_10.png</file>
+        <file>res/bcar_20.png</file>
+        <file>res/bcar_30.png</file>
+        <file>res/bcar_40.png</file>
+        <file>res/bcar_50.png</file>
+        <file>res/bcar_60.png</file>
+        <file>res/bcar_70.png</file>
+        <file>res/bcar_80.png</file>
+        <file>res/bcar_90.png</file>
+        <file>res/bcar-10.png</file>
+        <file>res/bcar-20.png</file>
+        <file>res/bcar-30.png</file>
+        <file>res/bcar-40.png</file>
+        <file>res/bcar-50.png</file>
+        <file>res/bcar-60.png</file>
+        <file>res/bcar-70.png</file>
+        <file>res/bcar-80.png</file>
+        <file>res/bcar-90.png</file>
     </qresource>
 </RCC>

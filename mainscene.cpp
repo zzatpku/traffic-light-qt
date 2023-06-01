@@ -47,6 +47,44 @@ MainScene::MainScene(QWidget *parent)
     w_car_turning_right[7].setPosition(TURN_RIGHT_80_X, TURN_RIGHT_80_Y);
     w_car_turning_right[8] = Car(W_CAR_TURN_90);
     w_car_turning_right[8].setPosition(TURN_RIGHT_90_X, TURN_RIGHT_90_Y);
+    //----------------------------------------------------------------------
+    r_car_turning_right[0] = Car(R_CAR_TURN_10);
+    r_car_turning_right[0].setPosition(TURN_RIGHT_10_X, TURN_RIGHT_10_Y);
+    r_car_turning_right[1] = Car(R_CAR_TURN_20);
+    r_car_turning_right[1].setPosition(TURN_RIGHT_20_X, TURN_RIGHT_20_Y);
+    r_car_turning_right[2] = Car(R_CAR_TURN_30);
+    r_car_turning_right[2].setPosition(TURN_RIGHT_30_X, TURN_RIGHT_30_Y);
+    r_car_turning_right[3] = Car(R_CAR_TURN_40);
+    r_car_turning_right[3].setPosition(TURN_RIGHT_40_X, TURN_RIGHT_40_Y);
+    r_car_turning_right[4] = Car(R_CAR_TURN_50);
+    r_car_turning_right[4].setPosition(TURN_RIGHT_50_X, TURN_RIGHT_50_Y);
+    r_car_turning_right[5] = Car(R_CAR_TURN_60);
+    r_car_turning_right[5].setPosition(TURN_RIGHT_60_X, TURN_RIGHT_60_Y);
+    r_car_turning_right[6] = Car(R_CAR_TURN_70);
+    r_car_turning_right[6].setPosition(TURN_RIGHT_70_X, TURN_RIGHT_70_Y);
+    r_car_turning_right[7] = Car(R_CAR_TURN_80);
+    r_car_turning_right[7].setPosition(TURN_RIGHT_80_X, TURN_RIGHT_80_Y);
+    r_car_turning_right[8] = Car(R_CAR_TURN_90);
+    r_car_turning_right[8].setPosition(TURN_RIGHT_90_X, TURN_RIGHT_90_Y);
+    //----------------------------------------------------------------------
+    b_car_turning_right[0] = Car(B_CAR_TURN_10);
+    b_car_turning_right[0].setPosition(TURN_RIGHT_10_X, TURN_RIGHT_10_Y);
+    b_car_turning_right[1] = Car(B_CAR_TURN_20);
+    b_car_turning_right[1].setPosition(TURN_RIGHT_20_X, TURN_RIGHT_20_Y);
+    b_car_turning_right[2] = Car(B_CAR_TURN_30);
+    b_car_turning_right[2].setPosition(TURN_RIGHT_30_X, TURN_RIGHT_30_Y);
+    b_car_turning_right[3] = Car(B_CAR_TURN_40);
+    b_car_turning_right[3].setPosition(TURN_RIGHT_40_X, TURN_RIGHT_40_Y);
+    b_car_turning_right[4] = Car(B_CAR_TURN_50);
+    b_car_turning_right[4].setPosition(TURN_RIGHT_50_X, TURN_RIGHT_50_Y);
+    b_car_turning_right[5] = Car(B_CAR_TURN_60);
+    b_car_turning_right[5].setPosition(TURN_RIGHT_60_X, TURN_RIGHT_60_Y);
+    b_car_turning_right[6] = Car(B_CAR_TURN_70);
+    b_car_turning_right[6].setPosition(TURN_RIGHT_70_X, TURN_RIGHT_70_Y);
+    b_car_turning_right[7] = Car(B_CAR_TURN_80);
+    b_car_turning_right[7].setPosition(TURN_RIGHT_80_X, TURN_RIGHT_80_Y);
+    b_car_turning_right[8] = Car(B_CAR_TURN_90);
+    b_car_turning_right[8].setPosition(TURN_RIGHT_90_X, TURN_RIGHT_90_Y);
     //------------------------------------------------------------------------
     car_turning_left[0] = Car(CAR_TURN_010);
     car_turning_left[0].setPosition(TURN_LEFT_10_X, TURN_LEFT_10_Y);
@@ -86,6 +124,44 @@ MainScene::MainScene(QWidget *parent)
     w_car_turning_left[8] = Car(W_CAR_TURN_090);
     w_car_turning_left[8].setPosition(TURN_LEFT_90_X, TURN_LEFT_90_Y);
     //----------------------------------------------------------------------
+    r_car_turning_left[0] = Car(R_CAR_TURN_010);
+    r_car_turning_left[0].setPosition(TURN_LEFT_10_X, TURN_LEFT_10_Y);
+    r_car_turning_left[1] = Car(R_CAR_TURN_020);
+    r_car_turning_left[1].setPosition(TURN_LEFT_20_X, TURN_LEFT_20_Y);
+    r_car_turning_left[2] = Car(R_CAR_TURN_030);
+    r_car_turning_left[2].setPosition(TURN_LEFT_30_X, TURN_LEFT_30_Y);
+    r_car_turning_left[3] = Car(R_CAR_TURN_040);
+    r_car_turning_left[3].setPosition(TURN_LEFT_40_X, TURN_LEFT_40_Y);
+    r_car_turning_left[4] = Car(R_CAR_TURN_050);
+    r_car_turning_left[4].setPosition(TURN_LEFT_50_X, TURN_LEFT_50_Y);
+    r_car_turning_left[5] = Car(R_CAR_TURN_060);
+    r_car_turning_left[5].setPosition(TURN_LEFT_60_X, TURN_LEFT_60_Y);
+    r_car_turning_left[6] = Car(R_CAR_TURN_070);
+    r_car_turning_left[6].setPosition(TURN_LEFT_70_X, TURN_LEFT_70_Y);
+    r_car_turning_left[7] = Car(R_CAR_TURN_080);
+    r_car_turning_left[7].setPosition(TURN_LEFT_80_X, TURN_LEFT_80_Y);
+    r_car_turning_left[8] = Car(R_CAR_TURN_090);
+    r_car_turning_left[8].setPosition(TURN_LEFT_90_X, TURN_LEFT_90_Y);
+    //----------------------------------------------------------------------
+    b_car_turning_left[0] = Car(B_CAR_TURN_010);
+    b_car_turning_left[0].setPosition(TURN_LEFT_10_X, TURN_LEFT_10_Y);
+    b_car_turning_left[1] = Car(B_CAR_TURN_020);
+    b_car_turning_left[1].setPosition(TURN_LEFT_20_X, TURN_LEFT_20_Y);
+    b_car_turning_left[2] = Car(B_CAR_TURN_030);
+    b_car_turning_left[2].setPosition(TURN_LEFT_30_X, TURN_LEFT_30_Y);
+    b_car_turning_left[3] = Car(B_CAR_TURN_040);
+    b_car_turning_left[3].setPosition(TURN_LEFT_40_X, TURN_LEFT_40_Y);
+    b_car_turning_left[4] = Car(B_CAR_TURN_050);
+    b_car_turning_left[4].setPosition(TURN_LEFT_50_X, TURN_LEFT_50_Y);
+    b_car_turning_left[5] = Car(B_CAR_TURN_060);
+    b_car_turning_left[5].setPosition(TURN_LEFT_60_X, TURN_LEFT_60_Y);
+    b_car_turning_left[6] = Car(B_CAR_TURN_070);
+    b_car_turning_left[6].setPosition(TURN_LEFT_70_X, TURN_LEFT_70_Y);
+    b_car_turning_left[7] = Car(B_CAR_TURN_080);
+    b_car_turning_left[7].setPosition(TURN_LEFT_80_X, TURN_LEFT_80_Y);
+    b_car_turning_left[8] = Car(B_CAR_TURN_090);
+    b_car_turning_left[8].setPosition(TURN_LEFT_90_X, TURN_LEFT_90_Y);
+    //----------------------------------------------------------------------
     turn_left_red = Light(RED_LIGHT);
     turn_left_red.setPosition(780, 5);
     turn_left_green = Light(GREEN_LIGHT);
@@ -114,6 +190,7 @@ MainScene::MainScene(QWidget *parent)
     turning_right = false;
     turning_left = false;
     heading = false;
+    update_speed = 1;
 
     test = Car(CAR_PATH);
     setMouseTracking(true);
@@ -164,16 +241,18 @@ void MainScene::playGame()
 {
     //启动定时器
     m_Timer.start();
+    //定时器设置
+    m_Timer.setInterval(GAME_RATE / update_speed);
 
     //监听定时器
     connect(&m_Timer,&QTimer::timeout,[=](){
         int t = clock();
-        t = t % 30000;
-        if(t <=13000) light = 0;
-        else if(15000 <= t && t <= 28000) light = 1;
+        t = t % (20000 / update_speed);
+        if(t <=8000 / update_speed) light = 0;
+        else if(10000 / update_speed <= t && t <= 18000 / update_speed) light = 1;
         else{
             light = 2;
-            if(t < 15000) judge_yellow_light = 0;
+            if(t < 10000) judge_yellow_light = 0;
             else judge_yellow_light = 1;
         }
         int ran1 = rand() % (400 * car_stream_1);
@@ -195,7 +274,7 @@ void MainScene::playGame()
     });
 }
 void MainScene::build_turn_right_Cars(){
-    int t = rand() % 2;
+    int t = rand() % 4;
     int num = cars_turn_right.count();
     bool flag = true;
     for(int i = 0; i < num; i++){
@@ -211,9 +290,17 @@ void MainScene::build_turn_right_Cars(){
             c = Car(CAR_PATH);
             c.car_type = 0;
         }
-        else{
+        else if (t == 1){
             c = Car(W_CAR_PATH);
             c.car_type = 1;
+        }
+        else if (t == 2){
+            c = Car(R_CAR_PATH);
+            c.car_type = 2;
+        }
+        else{
+            c = Car(B_CAR_PATH);
+            c.car_type = 3;
         }
         c.number = num;
         c.setSpeed(0, -3);
@@ -222,7 +309,7 @@ void MainScene::build_turn_right_Cars(){
     }
 }
 void MainScene::build_left_to_right_Cars(){
-    int t = rand() % 2;
+    int t = rand() % 4;
     int num = cars_lef_to_right.count();
     bool flag = true;
     for(int i = 0; i < num; i++){
@@ -238,9 +325,17 @@ void MainScene::build_left_to_right_Cars(){
             c = Car(CAR_TURN_90);
             c.car_type = 0;
         }
-        else{
+        else if(t == 1){
             c = Car(W_CAR_TURN_90);
             c.car_type = 1;
+        }
+        else if(t == 2){
+            c = Car(R_CAR_TURN_90);
+            c.car_type = 2;
+        }
+        else{
+            c = Car(B_CAR_TURN_90);
+            c.car_type = 3;
         }
         c.number = num;
         c.setSpeed(3, 0);
@@ -249,7 +344,7 @@ void MainScene::build_left_to_right_Cars(){
     }
 }
 void MainScene::build_right_to_left_Cars(){
-    int t = rand() % 2;
+    int t = rand() % 4;
     int num = cars_right_to_left.count();
     bool flag = true;
     for(int i = 0; i < num; i++){
@@ -265,9 +360,17 @@ void MainScene::build_right_to_left_Cars(){
             c = Car(CAR_TURN_090);
             c.car_type = 0;
         }
-        else{
+        else if(t == 1){
             c = Car(W_CAR_TURN_090);
             c.car_type = 1;
+        }
+        else if(t == 2){
+            c = Car(R_CAR_TURN_090);
+            c.car_type = 2;
+        }
+        else{
+            c = Car(B_CAR_TURN_090);
+            c.car_type = 3;
         }
         c.number = num;
         c.setSpeed(-3, 0);
@@ -276,7 +379,7 @@ void MainScene::build_right_to_left_Cars(){
     }
 }
 void MainScene::build_turn_left_Cars(){
-    int t = rand() % 2;
+    int t = rand() % 4;
     int num = cars_turn_left.count();
     bool flag = true;
     for(int i = 0; i < num; i++){
@@ -292,9 +395,17 @@ void MainScene::build_turn_left_Cars(){
             c = Car(CAR_PATH);
             c.car_type = 0;
         }
-        else{
+        else if(t == 1){
             c = Car(W_CAR_PATH);
             c.car_type = 1;
+        }
+        else if(t == 2){
+            c = Car(R_CAR_PATH);
+            c.car_type = 2;
+        }
+        else{
+            c = Car(B_CAR_PATH);
+            c.car_type = 3;
         }
         c.number = num;
         c.setSpeed(0, -3);
@@ -561,6 +672,8 @@ void MainScene::paintEvent(QPaintEvent *event)
         Car c;
         if(turning_right_type == 0)c = Car(CAR_TURN_90);
         if(turning_right_type == 1)c = Car(W_CAR_TURN_90);
+        if(turning_right_type == 2)c = Car(R_CAR_TURN_90);
+        if(turning_right_type == 3)c = Car(B_CAR_TURN_90);
         c.car_type = turning_right_type;
         c.number = num;
         c.setPosition(TURN_RIGHT_90_X, TURN_RIGHT_90_Y);
@@ -570,6 +683,8 @@ void MainScene::paintEvent(QPaintEvent *event)
     if(turn_right_flag > 0 && turn_right_flag < 54){
         if(turning_right_type == 0)painter.drawPixmap(car_turning_right[turn_right_flag / 6].m_X, car_turning_right[turn_right_flag / 6].m_Y, car_turning_right[turn_right_flag / 6].m_Car);
         if(turning_right_type == 1)painter.drawPixmap(w_car_turning_right[turn_right_flag / 6].m_X, w_car_turning_right[turn_right_flag / 6].m_Y, w_car_turning_right[turn_right_flag / 6].m_Car);
+        if(turning_right_type == 2)painter.drawPixmap(r_car_turning_right[turn_right_flag / 6].m_X, r_car_turning_right[turn_right_flag / 6].m_Y, r_car_turning_right[turn_right_flag / 6].m_Car);
+        if(turning_right_type == 3)painter.drawPixmap(b_car_turning_right[turn_right_flag / 6].m_X, b_car_turning_right[turn_right_flag / 6].m_Y, b_car_turning_right[turn_right_flag / 6].m_Car);
     }
     //----------------------------------------------------------------------------------------------------------------
     //这一部分处理左转车辆
@@ -580,6 +695,8 @@ void MainScene::paintEvent(QPaintEvent *event)
         Car c;
         if(turning_left_type == 0)c = Car(CAR_TURN_090);
         if(turning_left_type == 1)c = Car(W_CAR_TURN_090);
+        if(turning_left_type == 2)c = Car(R_CAR_TURN_090);
+        if(turning_left_type == 3)c = Car(B_CAR_TURN_090);
         c.car_type = turning_right_type;
         c.number = num;
         c.setPosition(TURN_LEFT_90_X, TURN_LEFT_90_Y);
@@ -589,6 +706,8 @@ void MainScene::paintEvent(QPaintEvent *event)
     if(turn_left_flag > 0 && turn_left_flag < 54){
         if(turning_left_type == 0)painter.drawPixmap(car_turning_left[turn_left_flag / 6].m_X, car_turning_left[turn_left_flag / 6].m_Y, car_turning_left[turn_left_flag / 6].m_Car);
         if(turning_left_type == 1)painter.drawPixmap(w_car_turning_left[turn_left_flag / 6].m_X, w_car_turning_left[turn_left_flag / 6].m_Y, w_car_turning_left[turn_left_flag / 6].m_Car);
+        if(turning_left_type == 2)painter.drawPixmap(r_car_turning_left[turn_left_flag / 6].m_X, r_car_turning_left[turn_left_flag / 6].m_Y, r_car_turning_left[turn_left_flag / 6].m_Car);
+        if(turning_left_type == 3)painter.drawPixmap(b_car_turning_left[turn_left_flag / 6].m_X, b_car_turning_left[turn_left_flag / 6].m_Y, b_car_turning_left[turn_left_flag / 6].m_Car);
     }
     if(light == 0){
         painter.drawPixmap(turn_left_red.m_X, turn_left_red.m_Y, turn_left_red.m_Light);
