@@ -1,11 +1,19 @@
 #ifndef MAINSCENE_H
 #define MAINSCENE_H
-
 #include <QtWidgets>
 #include "map.h"
 #include "car.h"
 #include "config.h"
 #include "light.h"
+
+#include <QDialog>
+#include <QMessageBox>
+
+namespace Ui {
+class Dialog;
+}
+
+
 
 class MainScene : public QWidget
 {
@@ -13,11 +21,19 @@ class MainScene : public QWidget
 
 public:
     int update_speed;
-    int car_stream_1;
+    double car_stream_1;
+    double car_stream_2;
+    double car_stream_3;
+    double car_stream_4;
+    double light1;
+    double light2;
+
     int light;//light=0表示可以直行，light=1表示可以左转, light=2表示黄灯
+    int judge_yellow_light;
+
     int turn_right_flag;//是一个0到9的数
     int turn_left_flag;
-    int judge_yellow_light;
+
     bool turning_right;
     bool turning_left;
     int turning_right_type;
@@ -81,6 +97,27 @@ public:
     Light right_to_left_yellow;
 
     QPixmap light_struct;
+};
+
+class Dialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Dialog(QWidget *parent = nullptr);
+    ~Dialog();
+    MainScene M;
+    int car_left_to_right;
+    int car_right_to_left;
+    int car_turn_left;
+    int car_turn_right;
+    int light1;
+    int light2;
+private slots:
+    void on_btnLogin_clicked();
+
+private:
+    Ui::Dialog *ui;
 };
 
 #endif // MAINSCENE_H

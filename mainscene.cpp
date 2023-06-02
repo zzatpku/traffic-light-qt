@@ -1,14 +1,69 @@
+#include "Mainscene.h"
+#include "ui_dialog.h"
 #include "mainscene.h"
 #include "config.h"
 #include <QWidget>
 #include <algorithm>
 #include <random>
 #include <QVector>
+
+Dialog::Dialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Dialog)
+{
+    ui->setupUi(this);
+    setWindowTitle(GAME_TITLE2);
+    setWindowIcon(QIcon( GAME_ICON));
+}
+
+Dialog::~Dialog()
+{
+    delete ui;
+}
+
+void Dialog::on_btnLogin_clicked()
+{
+    if(ui->txtstraightgreen->text()!=""&&ui->txtleftgreen->text()!=""&&ui->txtrightstraight->text()!=""&&ui->txtleftstraight->text()!=""
+            &&ui->txtturnright->text()!=""&&ui->txtturnleft->text()!="")
+    {
+        accept();
+        bool ok = false;
+        car_left_to_right = ui->txtleftstraight->text().toInt(&ok,10);
+        car_right_to_left = ui->txtrightstraight->text().toInt(&ok,10);
+        car_turn_left = ui->txtturnleft->text().toInt(&ok,10);
+        car_turn_right = ui->txtturnright->text().toInt(&ok,10);
+        light1 = ui->txtstraightgreen->text().toInt(&ok, 10);
+        light2 = ui->txtleftgreen->text().toInt(&ok,10);
+        double x1 = car_right_to_left;
+        double x2 = car_left_to_right;
+        double x3 = car_turn_left;
+        double x4 = car_turn_right;
+        double y1 = light1;
+        double y2 = light2;
+        M.car_stream_1 = x1 / (x1 + x2 + x3 + x4);
+        M.car_stream_2 = x2 / (x1 + x2 + x3 + x4);
+        M.car_stream_3 = x3 / (x1 + x2 + x3 + x4);
+        M.car_stream_4 = x4 / (x1 + x2 + x3 + x4);
+        M.light1 = y1 / (y1 + y2);
+        M.light2 = y2 / (y1 + y2);
+        this->hide();
+        M.show();
+        M.playGame();
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("Warning"), tr("Haven't input al  numbers yet!"), QMessageBox::Yes);
+    }
+}
+
 MainScene::MainScene(QWidget *parent)
     : QWidget(parent)
 {
     initScene();
     car_stream_1 = 1;
+    car_stream_2 = 1;
+    car_stream_3 = 1;
+    car_stream_4 = 1;
     light = 0;
     car_turning_right[0] = Car(CAR_TURN_10);
     car_turning_right[0].setPosition(TURN_RIGHT_10_X, TURN_RIGHT_10_Y);
@@ -248,17 +303,17 @@ void MainScene::playGame()
     connect(&m_Timer,&QTimer::timeout,[=](){
         int t = clock();
         t = t % (20000 / update_speed);
-        if(t <=8000 / update_speed) light = 0;
-        else if(10000 / update_speed <= t && t <= 18000 / update_speed) light = 1;
+        if(t <=16000 * light1 / update_speed) light = 0;
+        else if(16000 * light1 + 2000 / update_speed <= t && t <= 18000 / update_speed) light = 1;
         else{
             light = 2;
-            if(t < 10000) judge_yellow_light = 0;
+            if(t < 16000 * light1 + 2000) judge_yellow_light = 0;
             else judge_yellow_light = 1;
         }
-        int ran1 = rand() % (400 * car_stream_1);
-        int ran2 = rand() % (400 * car_stream_1);
-        int ran3 = rand() % (400 * car_stream_1);
-        int ran4 = rand() % (400 * car_stream_1);
+        int ran1 = rand() % (int(100 / car_stream_1));
+        int ran2 = rand() % (int(100 / car_stream_4));
+        int ran3 = rand() % (int(100 / car_stream_2));
+        int ran4 = rand() % (int(100 / car_stream_3));
         if(ran1 == 0)
             build_left_to_right_Cars();
         if(ran2 == 0)
@@ -736,3 +791,4 @@ void MainScene::paintEvent(QPaintEvent *event)
     painter.drawPixmap(1048, 116, light_struct);
     //painter.drawPixmap(test.m_X, test.m_Y, test.m_Car);
 }
+

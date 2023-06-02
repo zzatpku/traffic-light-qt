@@ -1,11 +1,10 @@
-#include "mainscene.h"
+#include "Mainscene.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainScene w;
+    Dialog w;
     w.show();
-    w.playGame();
     return a.exec();
 }
