@@ -30,7 +30,8 @@ SOURCES += \
     car.cpp \
     light.cpp \
     map.cpp \
-    picture.cpp
+    picture.cpp \
+    dialog2.cpp
 
 HEADERS += \
         Mainscene.h \
@@ -38,10 +39,12 @@ HEADERS += \
     light.h \
     map.h \
     config.h \
-    picture.h
+    picture.h \
+    dialog2.h
 
 FORMS += \
-        dialog.ui
+        dialog.ui \
+    dialog2.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

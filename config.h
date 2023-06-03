@@ -6,6 +6,7 @@
 #define ROAD_WIDTH 200
 #define GAME_TITLE "道路规划器" //标题
 #define GAME_TITLE2 "输入界面"
+#define GAME_TITLE3 "登入界面"
 #define GAME_ICON ":/res/taxi.jpg"
 #define MAP_PATH  ":/res/road1.png"
 #define GAME_RATE  10   //刷新间隔，帧率 单位毫秒

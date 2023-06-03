@@ -1,6 +1,7 @@
 #include "Mainscene.h"
 #include "ui_dialog.h"
 #include "mainscene.h"
+#include "Dialog2.h"
 #include "config.h"
 #include <QWidget>
 #include <algorithm>
@@ -52,7 +53,7 @@ void Dialog::on_btnLogin_clicked()
     }
     else
     {
-        QMessageBox::warning(this, tr("Warning"), tr("Haven't input al  numbers yet!"), QMessageBox::Yes);
+        QMessageBox::warning(this, tr("Warning"), tr("Haven't input all numbers yet!"), QMessageBox::Yes);
     }
 }
 
