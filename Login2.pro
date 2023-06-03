@@ -29,14 +29,16 @@ SOURCES += \
         Mainscene.cpp \
     car.cpp \
     light.cpp \
-    map.cpp
+    map.cpp \
+    picture.cpp
 
 HEADERS += \
         Mainscene.h \
     car.h \
     light.h \
     map.h \
-    config.h
+    config.h \
+    picture.h
 
 FORMS += \
         dialog.ui

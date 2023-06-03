@@ -5,6 +5,7 @@ Car::Car()
 {
     //初始化加载汽车图片资源
     m_Car.load(CAR_PATH);
+    judge_stop = 1;
 
     //初始化坐标
     m_X = GAME_WIDTH * 0.5 + 0.25 * ROAD_WIDTH;
@@ -20,6 +21,7 @@ Car::Car(const QString str)
 {
     //初始化加载汽车图片资源
     m_Car.load(str);
+    judge_stop = 1;
 
     //初始化坐标
     m_X = GAME_WIDTH * 0.5 + 0.25 * ROAD_WIDTH;

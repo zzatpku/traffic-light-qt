@@ -245,10 +245,16 @@ MainScene::MainScene(QWidget *parent)
     turning_right = false;
     turning_left = false;
     heading = false;
-    update_speed = 1;
+    update_speed = 2;
+    judge_stop = 1;
 
     test = Car(CAR_PATH);
-    setMouseTracking(true);
+
+    con = Picture(CONTINUE);
+    con.setPosition(CONTINUE_X, CONTINUE_Y);
+    sto = Picture(STOP);
+    sto.setPosition(STOP_X, STOP_Y);
+    //5setMouseTracking(true);
 }
 
 MainScene::~MainScene()
@@ -301,29 +307,32 @@ void MainScene::playGame()
 
     //监听定时器
     connect(&m_Timer,&QTimer::timeout,[=](){
-        int t = clock();
-        t = t % (20000 / update_speed);
-        if(t <=16000 * light1 / update_speed) light = 0;
-        else if(16000 * light1 + 2000 / update_speed <= t && t <= 18000 / update_speed) light = 1;
-        else{
-            light = 2;
-            if(t < 16000 * light1 + 2000) judge_yellow_light = 0;
-            else judge_yellow_light = 1;
+        if(judge_stop)
+        {
+            int t = clock();
+            t = t % (26000 / update_speed);
+            if(t <=22000 * light1 / update_speed) light = 0;
+            else if((22000 * light1 + 2000) / update_speed <= t && t <= 24000 / update_speed) light = 1;
+            else{
+                light = 2;
+                if((t < 22000 * light1 + 2000) / update_speed) judge_yellow_light = 0;
+                else judge_yellow_light = 1;
+            }
+            int ran1 = rand() % (int(100 / car_stream_1));
+            int ran2 = rand() % (int(100 / car_stream_4));
+            int ran3 = rand() % (int(100 / car_stream_2));
+            int ran4 = rand() % (int(100 / car_stream_3));
+            if(ran1 == 0)
+                build_left_to_right_Cars();
+            if(ran2 == 0)
+                build_turn_right_Cars();
+            if(ran3 == 0)
+                build_right_to_left_Cars();
+            if(ran4 == 0)
+                build_turn_left_Cars();
+            //更新游戏中元素的坐标
+            updatePosition();
         }
-        int ran1 = rand() % (int(100 / car_stream_1));
-        int ran2 = rand() % (int(100 / car_stream_4));
-        int ran3 = rand() % (int(100 / car_stream_2));
-        int ran4 = rand() % (int(100 / car_stream_3));
-        if(ran1 == 0)
-            build_left_to_right_Cars();
-        if(ran2 == 0)
-            build_turn_right_Cars();
-        if(ran3 == 0)
-            build_right_to_left_Cars();
-        if(ran4 == 0)
-            build_turn_left_Cars();
-        //更新游戏中元素的坐标
-        updatePosition();
         //重新绘制图片
         update();
     });
@@ -476,17 +485,30 @@ void MainScene::updatePosition()
     int num = cars_turn_right.count();
     for(int i = 0; i < num; i++){
         bool flag = true;
-        for(int j = 0; j < num; j++){//判断是否有车与这辆车距离过近
+        for(int j = 0; j < i; j++){//判断是否有车与这辆车距离过近
             if(j == cars_turn_right[i].number) continue;
-            if ((cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y) * (cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y)
-                    + (cars_turn_right[i].m_X + cars_turn_right[i].X_speed - cars_turn_right[j].m_X) * (cars_turn_right[i].m_X + cars_turn_right[i].X_speed- cars_turn_right[j].m_X)
-                    <= cars_turn_right[i].m_Car.height() * cars_turn_right[i].m_Car.height() + cars_turn_right[i].m_Car.width() * cars_turn_right[i].m_Car.width()){
-                flag = false;
-                break;
+            if(cars_turn_right[i].judge_stop == 1){
+                if ((cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y) * (cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y)
+                        + (cars_turn_right[i].m_X + cars_turn_right[i].X_speed - cars_turn_right[j].m_X) * (cars_turn_right[i].m_X + cars_turn_right[i].X_speed- cars_turn_right[j].m_X)
+                        <= cars_turn_right[i].m_Car.height() * cars_turn_right[i].m_Car.height() + cars_turn_right[i].m_Car.width() * cars_turn_right[i].m_Car.width()){
+                    cars_turn_right[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
+            }
+            else{
+                if ((cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y) * (cars_turn_right[i].m_Y + cars_turn_right[i].Y_speed - cars_turn_right[j].m_Y)
+                        + (cars_turn_right[i].m_X + cars_turn_right[i].X_speed - cars_turn_right[j].m_X) * (cars_turn_right[i].m_X + cars_turn_right[i].X_speed- cars_turn_right[j].m_X)
+                        <= STOP_RATE * (cars_turn_right[i].m_Car.height() * cars_turn_right[i].m_Car.height() + cars_turn_right[i].m_Car.width() * cars_turn_right[i].m_Car.width())){
+                    cars_turn_right[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
             }
         }
 
         if(flag){//如果没有车与这辆车距离过近
+            cars_turn_right[i].judge_stop = 1;
             if(cars_turn_right[i].m_Y >= ROAD_WIDTH + 50)cars_turn_right[i].m_Y += cars_turn_right[i].Y_speed;
             else{
                 f = true;
@@ -537,20 +559,33 @@ void MainScene::updatePosition()
     heading = false;
     for(int i = 0; i < num; i++){
         bool flag = true;
-        for(int j = 0; j < num; j++){//判断是否有车与这辆车距离过近
+        for(int j = 0; j < i; j++){//判断是否有车与这辆车距离过近
             if(j == cars_lef_to_right[i].number) continue;
-            if ((cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y) * (cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y)
-                    + (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed - cars_lef_to_right[j].m_X) * (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed- cars_lef_to_right[j].m_X)
-                    <= CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH){
-                flag = false;
-                break;
+            if(cars_lef_to_right[i].judge_stop == 1){
+                if ((cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y) * (cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y)
+                        + (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed - cars_lef_to_right[j].m_X) * (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed- cars_lef_to_right[j].m_X)
+                        <= CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH){
+                    cars_lef_to_right[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
+            }
+            else{
+                if ((cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y) * (cars_lef_to_right[i].m_Y + cars_lef_to_right[i].Y_speed - cars_lef_to_right[j].m_Y)
+                        + (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed - cars_lef_to_right[j].m_X) * (cars_lef_to_right[i].m_X + cars_lef_to_right[i].X_speed- cars_lef_to_right[j].m_X)
+                        <= STOP_RATE * (CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH)){
+                    cars_lef_to_right[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
             }
         }
         if(cars_lef_to_right[i].m_X >= 500 && cars_lef_to_right[i].m_X <= left_to_right_waitline + 2.2 * CAR_HEIGHT){
-            if(turn_right_flag > 0) flag = false;
+            if(turn_right_flag > 0) {flag = false; cars_lef_to_right[i].judge_stop = 0;}
             else heading = true;
         }
         if(flag){
+            cars_lef_to_right[i].judge_stop = 1;
             if(light == 0){
                 cars_lef_to_right[i].m_Y += cars_lef_to_right[i].Y_speed;
                 cars_lef_to_right[i].m_X += cars_lef_to_right[i].X_speed;
@@ -573,16 +608,29 @@ void MainScene::updatePosition()
     num = cars_right_to_left.count();
     for(int i = 0; i < num; i++){
         bool flag = true;
-        for(int j = 0; j < num; j++){//判断是否有车与这辆车距离过近
+        for(int j = 0; j < i; j++){//判断是否有车与这辆车距离过近
             if(j == cars_right_to_left[i].number) continue;
-            if ((cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y) * (cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y)
-                    + (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed - cars_right_to_left[j].m_X) * (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed- cars_right_to_left[j].m_X)
-                    <= CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH){
-                flag = false;
-                break;
+            if(cars_right_to_left[i].judge_stop == 1){
+                if ((cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y) * (cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y)
+                        + (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed - cars_right_to_left[j].m_X) * (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed- cars_right_to_left[j].m_X)
+                        <= CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH){
+                    cars_right_to_left[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
+            }
+            else{
+                if ((cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y) * (cars_right_to_left[i].m_Y + cars_right_to_left[i].Y_speed - cars_right_to_left[j].m_Y)
+                        + (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed - cars_right_to_left[j].m_X) * (cars_right_to_left[i].m_X + cars_right_to_left[i].X_speed- cars_right_to_left[j].m_X)
+                        <= STOP_RATE * (CAR_HEIGHT * CAR_HEIGHT + CAR_WIDTH * CAR_WIDTH)){
+                    cars_right_to_left[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
             }
         }
         if(flag){//如果没有车与这辆车距离过近
+            cars_right_to_left[i].judge_stop = 1;
             if(light == 0){
                 cars_right_to_left[i].m_Y += cars_right_to_left[i].Y_speed;
                 cars_right_to_left[i].m_X += cars_right_to_left[i].X_speed;
@@ -605,17 +653,30 @@ void MainScene::updatePosition()
     f = false;
     for(int i = 0; i < num; i++){
         bool flag = true;
-        for(int j = 0; j < num; j++){//判断是否有车与这辆车距离过近
+        for(int j = 0; j < i; j++){//判断是否有车与这辆车距离过近
             if(j == cars_turn_left[i].number) continue;
-            if ((cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y) * (cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y)
-                    + (cars_turn_left[i].m_X + cars_turn_left[i].X_speed - cars_turn_left[j].m_X) * (cars_turn_left[i].m_X + cars_turn_left[i].X_speed- cars_turn_left[j].m_X)
-                    <= cars_turn_left[i].m_Car.height() * cars_turn_left[i].m_Car.height() + cars_turn_left[i].m_Car.width() * cars_turn_left[i].m_Car.width()){
-                flag = false;
-                break;
+            if(cars_turn_left[i].judge_stop == 1){
+                if ((cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y) * (cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y)
+                        + (cars_turn_left[i].m_X + cars_turn_left[i].X_speed - cars_turn_left[j].m_X) * (cars_turn_left[i].m_X + cars_turn_left[i].X_speed- cars_turn_left[j].m_X)
+                        <= cars_turn_left[i].m_Car.height() * cars_turn_left[i].m_Car.height() + cars_turn_left[i].m_Car.width() * cars_turn_left[i].m_Car.width()){
+                    cars_turn_left[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
+            }
+            else{
+                if ((cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y) * (cars_turn_left[i].m_Y + cars_turn_left[i].Y_speed - cars_turn_left[j].m_Y)
+                        + (cars_turn_left[i].m_X + cars_turn_left[i].X_speed - cars_turn_left[j].m_X) * (cars_turn_left[i].m_X + cars_turn_left[i].X_speed- cars_turn_left[j].m_X)
+                        <= STOP_RATE * (cars_turn_left[i].m_Car.height() * cars_turn_left[i].m_Car.height() + cars_turn_left[i].m_Car.width() * cars_turn_left[i].m_Car.width())){
+                    cars_turn_left[i].judge_stop = 0;
+                    flag = false;
+                    break;
+                }
             }
         }
 
         if(flag){//如果没有车与这辆车距离过近
+            cars_turn_left[i].judge_stop = 1;
             if(light == 1){
                 if(cars_turn_left[i].m_Y >= TURN_LEFT_10_Y + 10)cars_turn_left[i].m_Y += cars_turn_left[i].Y_speed;
                 else{
@@ -666,27 +727,11 @@ void MainScene::updatePosition()
 
 void MainScene::mouseMoveEvent(QMouseEvent *event)
 {
+    //judge_stop = 0;
     int x = event->x();//鼠标位置 - 飞机矩形的一半
     int y = event->y();
-
-    //边界检测
-    if(x <= 0 )
-    {
-        x = 0;
-    }
-    if(x >= GAME_WIDTH)
-    {
-        x = GAME_WIDTH;
-    }
-    if(y <= 0)
-    {
-        y = 0;
-    }
-    if(y >= GAME_HEIGHT)
-    {
-        y = GAME_HEIGHT;
-    }
-    test.setPosition(x,y);
+    if(x >= CONTINUE_X && x <= CONTINUE_X + 110 && y >= CONTINUE_Y && y <= CONTINUE_Y + 110) judge_stop = 1;
+    if(x >= STOP_X && x <= STOP_X + 110 && y >= STOP_Y && y <= STOP_Y + 110) judge_stop = 0;
 }
 void MainScene::paintEvent(QPaintEvent *event)
 {
@@ -789,6 +834,9 @@ void MainScene::paintEvent(QPaintEvent *event)
     painter.drawPixmap(768, -5, light_struct);
     painter.drawPixmap(586, 116, light_struct);
     painter.drawPixmap(1048, 116, light_struct);
+
+    painter.drawPixmap(con.m_X, con.m_Y, con.m_Picture);
+    painter.drawPixmap(sto.m_X, sto.m_Y, sto.m_Picture);
     //painter.drawPixmap(test.m_X, test.m_Y, test.m_Car);
 }
 

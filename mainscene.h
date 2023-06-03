@@ -5,6 +5,7 @@
 #include "car.h"
 #include "config.h"
 #include "light.h"
+#include "picture.h"
 
 #include <QDialog>
 #include <QMessageBox>
@@ -27,6 +28,7 @@ public:
     double car_stream_4;
     double light1;
     double light2;
+    int judge_stop;//judge_stop为1代表正在运行，为0代表不在运行
 
     int light;//light=0表示可以直行，light=1表示可以左转, light=2表示黄灯
     int judge_yellow_light;
@@ -97,6 +99,9 @@ public:
     Light right_to_left_yellow;
 
     QPixmap light_struct;
+
+    Picture con;
+    Picture sto;
 };
 
 class Dialog : public QDialog

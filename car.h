@@ -20,6 +20,7 @@ public:
     QPixmap m_Car;
     int number;
     int car_type;//0代表taxi， 1代表white
+    int judge_stop;//0代表刚刚在停，1代表刚刚在行
 
     int m_X;
     int m_Y;

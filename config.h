@@ -9,6 +9,7 @@
 #define GAME_ICON ":/res/taxi.jpg"
 #define MAP_PATH  ":/res/road1.png"
 #define GAME_RATE  10   //刷新间隔，帧率 单位毫秒
+#define STOP_RATE 3
 
 #define CAR_PATH ":/res/taxi_0.png"
 #define CAR_TURN_10 ":/res/taxi_10.png"
@@ -99,6 +100,9 @@
 #define GREEN_LIGHT ":/res/green_light.png"
 #define TRAFFIC_LIGHT_1 ":/res/traffic_light.png"
 
+#define CONTINUE ":/res/continue.png"
+#define STOP ":/res/stop.png"
+
 #define CAR_HEIGHT 109
 #define CAR_WIDTH 50
 #define left_to_right_waitline 600
@@ -138,4 +142,8 @@
 #define TURN_LEFT_80_Y -40
 #define TURN_LEFT_90_X 545
 #define TURN_LEFT_90_Y -60
+#define CONTINUE_X 1200
+#define CONTINUE_Y 500
+#define STOP_X 1350
+#define STOP_Y 500
 #endif // CONFIG_H
