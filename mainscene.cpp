@@ -41,15 +41,16 @@ void Dialog::on_btnLogin_clicked()
         double x4 = car_turn_right;
         double y1 = light1;
         double y2 = light2;
-        M.car_stream_1 = x1 / (x1 + x2 + x3 + x4);
-        M.car_stream_2 = x2 / (x1 + x2 + x3 + x4);
-        M.car_stream_3 = x3 / (x1 + x2 + x3 + x4);
-        M.car_stream_4 = x4 / (x1 + x2 + x3 + x4);
-        M.light1 = y1 / (y1 + y2);
-        M.light2 = y2 / (y1 + y2);
+        M = new MainScene;
+        M->car_stream_1 = x1 / (x1 + x2 + x3 + x4);
+        M->car_stream_2 = x2 / (x1 + x2 + x3 + x4);
+        M->car_stream_3 = x3 / (x1 + x2 + x3 + x4);
+        M->car_stream_4 = x4 / (x1 + x2 + x3 + x4);
+        M->light1 = y1 / (y1 + y2);
+        M->light2 = y2 / (y1 + y2);
         this->hide();
-        M.show();
-        M.playGame();
+        M->show();
+        M->playGame();
     }
     else
     {
@@ -239,6 +240,11 @@ MainScene::MainScene(QWidget *parent)
     right_to_left_yellow = Light(YELLOW_LIGHT);
     right_to_left_yellow.setPosition(600, 125);
 
+    evaluate_turn_right = 1;
+    evaluate_turn_left = 1;
+    evaluate_left_to_right = 1;
+    evaluate_right_to_left = 1;
+
     light_struct.load(TRAFFIC_LIGHT_1);
 
     turn_right_flag = 0;
@@ -246,8 +252,9 @@ MainScene::MainScene(QWidget *parent)
     turning_right = false;
     turning_left = false;
     heading = false;
-    update_speed = 2;
+    update_speed = 1;
     judge_stop = 1;
+    play_again = false;
 
     test = Car(CAR_PATH);
 
@@ -255,6 +262,8 @@ MainScene::MainScene(QWidget *parent)
     con.setPosition(CONTINUE_X, CONTINUE_Y);
     sto = Picture(STOP);
     sto.setPosition(STOP_X, STOP_Y);
+    restart = Picture(RESTART);
+    restart.setPosition(RESTART_X, RESTART_Y);
     //5setMouseTracking(true);
 }
 
@@ -271,7 +280,8 @@ void MainScene::initScene()
     //设置窗口标题
     setWindowTitle(GAME_TITLE);
     //设置图标资源
-    setWindowIcon(QIcon( GAME_ICON));
+    setWindowIcon(QIcon(GAME_ICON));
+    setAttribute(Qt::WA_DeleteOnClose);
     //定时器设置
     m_Timer.setInterval(GAME_RATE);
 }
@@ -333,6 +343,12 @@ void MainScene::playGame()
                 build_turn_left_Cars();
             //更新游戏中元素的坐标
             updatePosition();
+        }
+        if(play_again){
+            play_again = false;
+            Dialog* w = new Dialog;
+            w->show();
+            close();
         }
         //重新绘制图片
         update();
@@ -733,7 +749,16 @@ void MainScene::mouseMoveEvent(QMouseEvent *event)
     int y = event->y();
     if(x >= CONTINUE_X && x <= CONTINUE_X + 110 && y >= CONTINUE_Y && y <= CONTINUE_Y + 110) judge_stop = 1;
     if(x >= STOP_X && x <= STOP_X + 110 && y >= STOP_Y && y <= STOP_Y + 110) judge_stop = 0;
+    if(x >= RESTART_X && x <= RESTART_X + 110 && y >= RESTART_Y && y <= RESTART_Y + 110) play_again = true;
+    //代表鼠标左键按下
+//    if(event->button()==Qt::LeftButton){
+//        int x=event->x();
+//        int y=event->y();
+//        if(x >= CONTINUE_X && x <= CONTINUE_X + 110 && y >= CONTINUE_Y && y <= CONTINUE_Y + 110) judge_stop = 1;
+//        if(x >= STOP_X && x <= STOP_X + 110 && y >= STOP_Y && y <= STOP_Y + 110) judge_stop = 0;
+//    }
 }
+
 void MainScene::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
@@ -838,6 +863,7 @@ void MainScene::paintEvent(QPaintEvent *event)
 
     painter.drawPixmap(con.m_X, con.m_Y, con.m_Picture);
     painter.drawPixmap(sto.m_X, sto.m_Y, sto.m_Picture);
+    painter.drawPixmap(restart.m_X, restart.m_Y, restart.m_Picture);
     //painter.drawPixmap(test.m_X, test.m_Y, test.m_Car);
 }
 

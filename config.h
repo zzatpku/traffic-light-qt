@@ -7,6 +7,7 @@
 #define GAME_TITLE "道路规划器" //标题
 #define GAME_TITLE2 "输入界面"
 #define GAME_TITLE3 "登入界面"
+#define GAME_TITLE4 "帮助"
 #define GAME_ICON ":/res/taxi.jpg"
 #define MAP_PATH  ":/res/road1.png"
 #define GAME_RATE  10   //刷新间隔，帧率 单位毫秒
@@ -103,6 +104,7 @@
 
 #define CONTINUE ":/res/continue.png"
 #define STOP ":/res/stop.png"
+#define RESTART ":/res/restart.png"
 
 #define CAR_HEIGHT 109
 #define CAR_WIDTH 50
@@ -143,8 +145,10 @@
 #define TURN_LEFT_80_Y -40
 #define TURN_LEFT_90_X 545
 #define TURN_LEFT_90_Y -60
-#define CONTINUE_X 1200
-#define CONTINUE_Y 500
-#define STOP_X 1350
-#define STOP_Y 500
+#define CONTINUE_X 1150
+#define CONTINUE_Y 550
+#define STOP_X 1300
+#define STOP_Y 550
+#define RESTART_X 1450
+#define RESTART_Y 550
 #endif // CONFIG_H

@@ -30,6 +30,11 @@ public:
     double light2;
     int judge_stop;//judge_stop为1代表正在运行，为0代表不在运行
 
+    double evaluate_turn_right;
+    double evaluate_turn_left;
+    double evaluate_left_to_right;
+    double evaluate_right_to_left;
+
     int light;//light=0表示可以直行，light=1表示可以左转, light=2表示黄灯
     int judge_yellow_light;
 
@@ -41,6 +46,9 @@ public:
     int turning_right_type;
     int turning_left_type;
     bool heading;
+
+    bool play_again;
+
     MainScene(QWidget *parent = nullptr);
     ~MainScene();
     void  initScene();
@@ -102,6 +110,8 @@ public:
 
     Picture con;
     Picture sto;
+    Picture restart;
+    void show_self();
 };
 
 class Dialog : public QDialog
@@ -111,13 +121,15 @@ class Dialog : public QDialog
 public:
     explicit Dialog(QWidget *parent = nullptr);
     ~Dialog();
-    MainScene M;
+    MainScene *M;
     int car_left_to_right;
     int car_right_to_left;
     int car_turn_left;
     int car_turn_right;
     int light1;
     int light2;
+signals:
+    void showMain();
 private slots:
     void on_btnLogin_clicked();
 

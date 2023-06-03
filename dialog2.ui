@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>891</width>
+    <width>892</width>
     <height>501</height>
    </rect>
   </property>
@@ -14,13 +14,13 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/res/2.png);</string>
+   <string notr="true">background-image: url(:/res/12.jpg);</string>
   </property>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>390</y>
+     <x>340</x>
+     <y>370</y>
      <width>231</width>
      <height>71</height>
     </rect>
@@ -32,7 +32,13 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QPushButton:pressed
+    <string notr="true">QPushButton
+{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed
 {
 	
 	color: rgb(255, 170, 255);
@@ -41,6 +47,39 @@
    </property>
    <property name="text">
     <string>点击输入参数</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_help">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>50</y>
+     <width>151</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>幼圆</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+	
+	background-color: rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+}
+QPushButton:pressed
+{
+	
+	color: rgb(255, 170, 255);
+	background-color: rgb(255, 170, 255);
+}</string>
+   </property>
+   <property name="text">
+    <string>帮助</string>
    </property>
   </widget>
  </widget>
