@@ -14,12 +14,12 @@ class Dialog3 : public QDialog
 public:
     explicit Dialog3(QWidget *parent = nullptr);
     ~Dialog3();
+    Ui::Dialog3 *ui;
 
 private slots:
-    void on_pushButton_3_clicked();
+//    void on_pushButton_3_clicked();
 
 private:
-    Ui::Dialog3 *ui;
 };
 
 #endif // DIALOG3_H

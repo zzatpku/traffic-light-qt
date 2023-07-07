@@ -58,7 +58,7 @@ void Car::setPosition(int x, int y)
     m_Rect.moveTo(m_X,m_Y);
 }
 
-void Car::setSpeed(int s_x, int s_y)
+void Car::setSpeed(double s_x, double s_y)
 {
     X_speed = s_x;
     Y_speed = s_y;

@@ -10,7 +10,7 @@
 #define GAME_TITLE4 "帮助"
 #define GAME_ICON ":/res/taxi.jpg"
 #define MAP_PATH  ":/res/road1.png"
-#define GAME_RATE  10   //刷新间隔，帧率 单位毫秒
+#define GAME_RATE  8   //刷新间隔，帧率 单位毫秒
 #define STOP_RATE 3
 
 #define CAR_PATH ":/res/taxi_0.png"
@@ -151,4 +151,7 @@
 #define STOP_Y 550
 #define RESTART_X 1450
 #define RESTART_Y 550
+
+//#define TRAFFIC_FLOW 1000 // 车流量，模拟早晚高峰和平峰
+
 #endif // CONFIG_H

@@ -14,14 +14,14 @@ class Dialog2 : public QDialog
 public:
     explicit Dialog2(QWidget *parent = nullptr);
     ~Dialog2();
+    Ui::Dialog2 *ui;
 
 private slots:
-    void on_pushButton_clicked();
+//    void on_pushButton_clicked();
 
-    void on_pushButton_help_clicked();
+//    void on_pushButton_help_clicked();
 
 private:
-    Ui::Dialog2 *ui;
 };
 
 #endif // DIALOG2_H

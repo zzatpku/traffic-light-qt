@@ -48,7 +48,6 @@
         <file>res/redcar.png</file>
         <file>res/road.jpg</file>
         <file>res/road.png</file>
-        <file>res/road1.png</file>
         <file>res/taxi.jpg</file>
         <file>res/taxi_0.png</file>
         <file>res/taxi_10.png</file>
@@ -107,5 +106,16 @@
         <file>res/description1.png</file>
         <file>res/description2.png</file>
         <file>res/background1.png</file>
+        <file>res/background_image.jpg</file>
+        <file>res/牛奶.jpg</file>
+        <file>res/road1.png</file>
+        <file>res/baymax.gif</file>
+        <file>res/duck.png</file>
+    </qresource>
+    <qresource prefix="/MainWindowDyx">
+        <file>res/dyx_change_parameter.png</file>
+        <file>res/dyx_continue_simulate.png</file>
+        <file>res/dyx_end_simulate.png</file>
+        <file>res/dyx_stop_simulate.png</file>
     </qresource>
 </RCC>

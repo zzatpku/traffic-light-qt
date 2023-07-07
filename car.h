@@ -14,7 +14,7 @@ public:
     Car(int num);
     Car(const QString s);
     void setPosition(int x, int y);
-    void setSpeed(int s_x, int s_y);
+    void setSpeed(double s_x, double s_y);
 
 public:
     QPixmap m_Car;
@@ -25,8 +25,8 @@ public:
     int m_X;
     int m_Y;
 
-    int X_speed;
-    int Y_speed;
+    double X_speed;
+    double Y_speed;
     QRect m_Rect;
 };
 

@@ -3,7 +3,6 @@
 # Project created by QtCreator 2023-06-02T16:12:19
 #
 #-------------------------------------------------
-
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -32,7 +31,10 @@ SOURCES += \
     map.cpp \
     picture.cpp \
     dialog2.cpp \
-    dialog3.cpp
+    dialog3.cpp \
+    mainwindowdyx.cpp \
+    simulatewindow.cpp \
+    endwindow.cpp
 
 HEADERS += \
         Mainscene.h \
@@ -42,12 +44,18 @@ HEADERS += \
     config.h \
     picture.h \
     dialog2.h \
-    dialog3.h
+    dialog3.h \
+    mainwindowdyx.h \
+    simulatewindow.h \
+    endwindow.h
 
 FORMS += \
         dialog.ui \
     dialog2.ui \
-    dialog3.ui
+    dialog3.ui \
+    mainwindowdyx.ui \
+    simulatewindow.ui \
+    endwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
