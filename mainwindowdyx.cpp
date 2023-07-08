@@ -8,6 +8,7 @@
 #include "ui_dialog3.h"
 #include "ui_simulatewindow.h"
 #include "ui_endwindow.h"
+#include "simulatewindow.h"
 
 #include <QDebug>
 // #include <QDialog>
@@ -147,7 +148,7 @@ MainWindowDyx::MainWindowDyx(QWidget *parent) :
         dialogSet->windowSimulate->ui->lableShowPassCar->
                 setText(QString::number(this->dialogSet->windowSimulate->pass_car_number));
 
-        dialogSet->windowSimulate->updateCarSpeedAndTimer();
+        //dialogSet->windowSimulate->updateCarSpeedAndTimer();
     });
     //1.mainwindowdyx**********************************************************
 //    connect(ui->actionHeavyFlow,&QAction::triggered,[=]()
@@ -242,24 +243,17 @@ MainWindowDyx::MainWindowDyx(QWidget *parent) :
             windowEnd->ui->lableShowPassCar->setText(QString::number(pass_car_number));
             windowEnd->ui->lableShowTime->setText(QString::number(msec));
 
-            int tmp=pass_car_number*10/msec;
-            int remainder=tmp%5;
-            tmp-=remainder;
+            double tmp;
+            tmp = dialogSet->windowSimulate->jam_left_to_right * dialogSet->windowSimulate->jam_left_to_right + dialogSet->windowSimulate->jam_right_to_left * dialogSet->windowSimulate->jam_right_to_left
+                     + dialogSet->windowSimulate->jam_turn_left * dialogSet->windowSimulate->jam_turn_left + dialogSet->windowSimulate->jam_turn_right * dialogSet->windowSimulate->jam_turn_right
+                    - (dialogSet->windowSimulate->jam_left_to_right + dialogSet->windowSimulate->jam_right_to_left + dialogSet->windowSimulate->jam_turn_left + dialogSet->windowSimulate->jam_turn_right) *
+                    (dialogSet->windowSimulate->jam_left_to_right + dialogSet->windowSimulate->jam_right_to_left + dialogSet->windowSimulate->jam_turn_left + dialogSet->windowSimulate->jam_turn_right) / 4;
             char evaluation;
-            switch (tmp)
-            {
-            case 10:
-                evaluation='A';
-                break;
-            case 5:
-                evaluation='B';
-                break;
-            case 0:
-                evaluation='C';
-                break;
-            default:
-                evaluation='S';
-            }
+            if(tmp < 0.04) evaluation = 'S';
+            else if(tmp < 0.1) evaluation = 'A';
+            else if(tmp < 0.25) evaluation = 'B';
+            else if(tmp < 0.6) evaluation = 'C';
+            else evaluation = 'D';
             windowEnd->ui->lableParameterEvaluation->setText(QString(evaluation));
 
             windowEnd->show();

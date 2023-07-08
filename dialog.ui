@@ -155,7 +155,7 @@ QPushButton:pressed
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>  请输入向左直行车流量（辆每分钟）：（非负整数，不大于1000）</string>
+        <string>  请输入向左直行车流量（辆每分钟）：</string>
        </property>
       </widget>
      </item>
@@ -217,7 +217,7 @@ QPushButton:pressed
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>  请输入右转车流量（辆每分钟）：（非负整数，不大于1000）</string>
+        <string>  请输入右转车流量（辆每分钟）：</string>
        </property>
       </widget>
      </item>
@@ -254,7 +254,7 @@ QPushButton:pressed
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>  请输入向右直行车流量（辆每分钟）：（非负整数，不大于1000）</string>
+        <string>  请输入向右直行车流量（辆每分钟）：</string>
        </property>
       </widget>
      </item>
@@ -416,7 +416,7 @@ QPushButton:pressed
         <string notr="true"/>
        </property>
        <property name="text">
-        <string>  请输入左转车流量（辆每分钟）：（非负整数，不大于1000）</string>
+        <string>  请输入左转车流量（辆每分钟）：</string>
        </property>
       </widget>
      </item>

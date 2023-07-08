@@ -206,11 +206,14 @@ void SimulateWindow::playGame()
             int ran = rand() % (parameter);
             if(ran < 2 * car_stream_1)
                 build_left_to_right_Cars();
-            else if(ran < 2 * (car_stream_1 + car_stream_2))
+            ran = rand() % (parameter);
+            if(ran < 2 * car_stream_2)
                 build_turn_right_Cars();
-            else if(ran < 2 * (car_stream_1 + car_stream_2 + car_stream_3))
+            ran = rand() % (parameter);
+            if(ran < 2 * car_stream_3)
                 build_right_to_left_Cars();
-            else if(ran < 2 * (car_stream_1 + car_stream_2 + car_stream_3 + car_stream_4))
+            ran = rand() % (parameter);
+            if(ran < 2 * car_stream_4)
                 build_turn_left_Cars();
             if(left_to_right_num){
                 build_left_to_right_Cars();
@@ -243,16 +246,6 @@ void SimulateWindow::playGame()
             jam_right_to_left = (double)car_jam_right_to_left / (double)now_time;//cars_right_to_left.size();//
             jam_turn_left = (double)car_jam_turn_left / (double)now_time;//cars_turn_left.size();//
             jam_turn_right = (double)car_jam_turn_right / (double)now_time;//cars_turn_right.size();//
-            //jam_left_to_right = 1;
-            //jam_right_to_left = 1;
-            //jam_turn_left = 1;
-            //jam_turn_right = 1;
-            for(int i = 0; i < cars_lef_to_right.size(); i++) cars_lef_to_right[i].setSpeed(3, 0);
-            for(int i = 0; i < cars_right_to_left.size(); i++) cars_right_to_left[i].setSpeed(-3, 0);
-            for(int i = 0; i < cars_turn_left.size(); i++) cars_turn_left[i].setSpeed(0, -3);
-            for(int i = 0; i < cars_turn_right.size(); i++) cars_turn_right[i].setSpeed(0, -3);
-            for(int i = 0; i < cars_turned_left.size(); i++) cars_turned_left[i].setSpeed(-3, 0);
-            for(int i = 0; i < cars_turned_right.size(); i++) cars_turned_right[i].setSpeed(3, 0);
 
             //更新游戏中元素的坐标
             updatePosition();
@@ -662,40 +655,6 @@ void SimulateWindow::updatePosition()
 }
 
 
-void SimulateWindow::updateCarSpeedAndTimer()
-{
-    //    m_Timer.setInterval(GAME_RATE/simulate_speed);
-    int num = cars_turn_right.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_turn_right[i].setSpeed(0,-3);
-    }
-    num = cars_turned_right.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_turned_right[i].setSpeed(3,0);
-    }
-    num = cars_lef_to_right.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_lef_to_right[i].setSpeed(3,0);
-    }
-    num = cars_right_to_left.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_right_to_left[i].setSpeed(-3,0);
-    }
-    num = cars_turn_left.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_turn_left[i].setSpeed(0,-3);
-    }
-    num = cars_turned_left.count();
-    for(int i = 0; i < num; i++)
-    {
-        cars_turned_left[i].setSpeed(-3,0);
-    }
-}
 
 void SimulateWindow::paintEvent(QPaintEvent *event)
 {

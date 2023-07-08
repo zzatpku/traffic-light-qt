@@ -49,9 +49,6 @@
    <addaction name="action_2Speed"/>
    <addaction name="action_4Speed"/>
    <addaction name="action_16Speed"/>
-   <addaction name="actionHeavyFlow"/>
-   <addaction name="actionNormalFlow"/>
-   <addaction name="actionLightFlow"/>
   </widget>
   <action name="actionNew">
    <property name="text">
@@ -146,21 +143,6 @@
    </property>
    <property name="toolTip">
     <string>模拟车流量大的情况（早晚高峰）或模拟车流量小的情况</string>
-   </property>
-  </action>
-  <action name="actionHeavyFlow">
-   <property name="text">
-    <string>车流量大</string>
-   </property>
-  </action>
-  <action name="actionLightFlow">
-   <property name="text">
-    <string>车流量小</string>
-   </property>
-  </action>
-  <action name="actionNormalFlow">
-   <property name="text">
-    <string>车流量适中</string>
    </property>
   </action>
  </widget>

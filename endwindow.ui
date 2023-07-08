@@ -152,34 +152,6 @@ font: 56pt &quot;方正粗黑宋简体&quot;;</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_2">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>300</width>
-             <height>70</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>300</width>
-             <height>70</height>
-            </size>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">font: 36pt &quot;方正粗黑宋简体&quot;;</string>
-           </property>
-           <property name="text">
-            <string>总通过车辆数量：</string>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_3">
            <property name="minimumSize">
@@ -233,6 +205,34 @@ font: 56pt &quot;方正粗黑宋简体&quot;;</string>
            </property>
            <property name="text">
             <string>TextLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 36pt &quot;方正粗黑宋简体&quot;;</string>
+           </property>
+           <property name="text">
+            <string>通过车辆数：</string>
            </property>
           </widget>
          </item>

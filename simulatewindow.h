@@ -91,8 +91,8 @@ public:
     QVector<Car> cars_turned_left;//左转完毕车辆
     QVector<Car> cars_right_to_left;//从右到左直行的车
 
-    Car car_turning_right[9];
-    Car car_turning_left[9];
+    Car car_turning_right[9];//黄色正在右转的车
+    Car car_turning_left[9];//黄色正在左转的车
 
     Car w_car_turning_right[9];
     Car w_car_turning_left[9];
